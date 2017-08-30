@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Wizard Counter</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_game_menu">GameMenu</string>
+    <string name="title_activity_player_selection">PlayerSelection</string>
+    <string name="Number_of_Players">Number of Players</string>
+    <string name="Player">Player 1</string>
+    <string name="Player_2">Player 2</string>
+    <string name="Player_3">Player 3</string>
+    <string name="Player_4">Player 4</string>
+    <string name="Player_5">Player 5</string>
+    <string name="Player_6">Player 6</string>
+    <string name="Player_Name">Player Name</string>
+    <string name="Continue">Continue</string>
+</resources>

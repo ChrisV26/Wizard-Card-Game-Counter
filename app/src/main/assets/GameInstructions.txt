@@ -1,0 +1,20 @@
+-OBJECTIVE
+ The objective of the game is to bid correctly on the number of tricks that a player will take in the subsequent round of play.
+ Points are awarded for a correct bid and subtracted for an incorrect bid.
+ The player with most points after all rounds have been played is the winner.
+-GAMEPLAY
+ In the first round every player gets one card.
+ In the subsequent rounds the number of cards is increased by one until all cards are distributed.
+ The top card of the remaining cards is turned over to determine the trump suit.
+ (If there are no cards left or a jester is turned there is no trump suit only the wizards are trump.
+ If a wizard is turned the dealer picks a trump suit.)
+ The player to the left of the dealer plays a card and then the others follow clockwise.
+ If a card other than a wizard or jester is played the players have to follow suit,
+ but it is possible to play a jester or wizard although the player has the desired suit.
+ The Wizard beats all other cards but the first one in a trick beats all others.
+ The jester is beaten by all others, but if all cards in a trick are jesters the first one beats the others.
+ If a jester is played as the first card the first suit card decides which suit has to be followed.
+ If a wizard is played as the first card every player is free to play what they want regardless of the others.
+-SCORING
+ For predicting the number of tricks taken correctly, a player receives 20 points plus 10 points for each trick taken.
+ For predicting the number of tricks taken incorrectly, a player loses 10 points for each trick over or under.
