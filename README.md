@@ -1,7 +1,10 @@
-Summary: Score-Pad to track the points for the Card Game "Wizard"
+## Summary
 
-Version: 1.1
+Score-Pad to track the points for the Card Game "Wizard"
 
-Status: Completed
+### Version: 1.1
+   
+### Updates: Depends on user's requests
 
-Updates: Depends on user's requests
+  - [x] Updated due to Google Guidelines for minimum SDK.
+
