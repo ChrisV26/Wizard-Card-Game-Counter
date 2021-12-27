@@ -1,30 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeScreen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.gameapp.android.wizardcounter.HomeScreen">
+    android:background="@color/purple"
+    tools:context="com.gameapp.android.wizardcounter.ui.HomeScreen">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/instructionsButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_marginTop="64dp"
+        android:onClick="Instructions"
+        android:text="@string/instructions"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/loadGameButton" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:elevation="0dp"
-            android:visibility="gone"/>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/loadGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/instructionsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="45dp"
+        android:layout_marginTop="64dp"
+        android:onClick="LoadGame"
+        android:text="@string/load_game"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/newGameButton" />
 
-    </android.support.design.widget.AppBarLayout>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/newGameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/loadGameButton"
+        android:layout_marginTop="64dp"
+        android:onClick="NewGame"
+        android:text="@string/new_game"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wizardLogo" />
 
-    <include layout="@layout/content_home_screen" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/wizardLogo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:src="@drawable/wizard_logo_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-
-</android.support.design.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

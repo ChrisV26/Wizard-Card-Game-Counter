@@ -1,29 +1,202 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/playerSelection"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="com.gameapp.android.wizardcounter.PlayerSelection">
+    tools:context="com.gameapp.android.wizardcounter.ui.PlayerSelection">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addPlayerButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_below="@id/numberOfPlayersPlaceholder"
+        android:layout_marginEnd="42dp"
+        android:layout_marginTop="24dp"
+        android:onClick="plus"
+        android:text="@string/add_player"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberOfPlayersPlaceholder" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/removePlayerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="24dp"
+        android:onClick="minus"
+        android:text="@string/remove_player"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/numberOfPlayersPlaceholder" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continute_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="42dp"
+        android:layout_marginEnd="42dp"
+        android:onClick="ContinueOn"
+        android:text="@string/Continue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_one_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Player"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/removePlayerButton">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_one_edit"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:visibility="gone"/>
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_two_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Player_2"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_one_textInput_layout">
 
-    <include layout="@layout/content_player_selection" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_two_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_three_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Player_3"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_two_textInput_layout">
 
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_three_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_four_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Player_4"
+        android:selectAllOnFocus="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_three_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_four_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_five_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Player_5"
+        android:selectAllOnFocus="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_four_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_five_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_six_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/Player_6"
+        android:selectAllOnFocus="true"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/player_five_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_six_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="12dp"
+            android:paddingStart="16dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/numberOfPlayersPlaceholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="@string/Number_of_Players"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

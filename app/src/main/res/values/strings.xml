@@ -12,4 +12,9 @@
     <string name="Player_6">Player 6</string>
     <string name="Player_Name">Player Name</string>
     <string name="Continue">Continue</string>
+    <string name="new_game">New Game</string>
+    <string name="load_game">Load Game</string>
+    <string name="instructions">Instructions</string>
+    <string name="add_player">+</string>
+    <string name="remove_player">-</string>
 </resources>

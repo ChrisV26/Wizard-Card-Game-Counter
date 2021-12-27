@@ -1,13 +1,16 @@
-package com.gameapp.android.wizardcounter;
+package com.gameapp.android.wizardcounter.ui;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.gameapp.android.wizardcounter.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class GameInstructions extends AppCompatActivity {
 
@@ -19,11 +22,10 @@ public class GameInstructions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_instructions);
 
-        GameInstruct=(TextView)findViewById(R.id.instruct_txt);
+        GameInstruct = (TextView) findViewById(R.id.instruct_txt);
 
         BufferedReader reader = null;
-        try
-        {
+        try {
             //read from the text GameInstructions.txt
             reader = new BufferedReader(
                     new InputStreamReader(getAssets().open("GameInstructions.txt")));
@@ -34,22 +36,14 @@ public class GameInstructions extends AppCompatActivity {
                 DataString.append('\n');
 
             }
-        }
-        catch (IOException e)
-        {
-            Toast.makeText(getApplicationContext(),"Error reading file!",Toast.LENGTH_LONG).show();
+        } catch (IOException e) {
+            Toast.makeText(getApplicationContext(), "Error reading file!", Toast.LENGTH_LONG).show();
             e.printStackTrace();
-        }
-        finally
-        {
-            if (reader != null)
-            {
-                try
-                {
+        } finally {
+            if (reader != null) {
+                try {
                     reader.close();
-                }
-                catch (IOException e)
-                {
+                } catch (IOException e) {
 
                 }
             }
