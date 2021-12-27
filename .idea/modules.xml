@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/wizard-counter-card-game.iml" filepath="$PROJECT_DIR$/wizard-counter-card-game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Wizard-Card-Game-Counter.iml" filepath="$PROJECT_DIR$/.idea/modules/Wizard-Card-Game-Counter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Wizard-Card-Game-Counter.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Wizard-Card-Game-Counter.app.iml" />
     </modules>
   </component>
 </project>
