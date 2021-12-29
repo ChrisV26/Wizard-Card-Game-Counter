@@ -4,6 +4,8 @@
     <string name="title_activity_game_menu">GameMenu</string>
     <string name="title_activity_player_selection">PlayerSelection</string>
     <string name="Number_of_Players">Number of Players</string>
+    <string name="bid"> Bid </string>
+    <string name="trick"> Trick </string>
     <string name="Player">Player 1</string>
     <string name="Player_2">Player 2</string>
     <string name="Player_3">Player 3</string>
@@ -17,4 +19,14 @@
     <string name="instructions">Instructions</string>
     <string name="add_player">+</string>
     <string name="remove_player">-</string>
+    <string name="game_menu_calculate_round">Calculate Round</string>
+    <string name="game_menu_next_round">Next Round</string>
+    <string name="game_menu_save">save</string>
+    <string name="game_menu_score_placeholder">Score</string>
+    <string name="game_menu_tricks_placeholder">Tricks</string>
+    <string name="game_menu_bids_placeholder">Bids</string>
+    <string name="game_menu_players_placeholder">Players</string>
+    <string name="game_menu_round_placeholder">Round</string>
+    <string name="round_num_placeholder">2</string>
+    <string name="game_menu_of_text">of</string>
 </resources>

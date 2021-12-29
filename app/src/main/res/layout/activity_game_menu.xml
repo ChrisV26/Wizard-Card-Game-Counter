@@ -1,29 +1,587 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gameMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context="com.gameapp.android.wizardcounter.ui.GameMenu">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/calc_btn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_marginBottom="24dp"
+        android:layout_marginStart="24dp"
+        android:maxLines="2"
+        android:text="@string/game_menu_calculate_round"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/new_round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="@string/game_menu_next_round"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/save"
+        app:layout_constraintStart_toEndOf="@id/calc_btn" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/game_menu_save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_one_bid_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/bid"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_one_trick_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_1_placeholder"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_one_bid_edit"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
-            android:visibility="gone"/>
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/bid" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    </android.support.design.widget.AppBarLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_two_bid_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/bid"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_two_trick_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_2_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/player_one_bid_textInput_layout">
 
-    <include layout="@layout/content_game_menu" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_two_bid_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/bid" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_three_bid_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/bid"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_three_trick_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_3_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/player_two_bid_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_three_bid_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/bid" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_four_bid_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/bid"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_four_trick_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_4_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/player_three_bid_textInput_layout">
 
-</android.support.design.widget.CoordinatorLayout>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_four_bid_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/bid" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_five_bid_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/bid"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_five_trick_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_5_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/player_four_bid_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_five_bid_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/bid" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_six_bid_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/bid"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_six_trick_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_6_placeholder"
+        app:layout_constraintTop_toBottomOf="@id/player_five_bid_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_six_bid_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/bid" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_one_trick_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:hint="@string/trick"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_1_score_placeholder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_one_bid_textInput_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_one_trick_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/trick" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_two_trick_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/trick"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_2_score_placeholder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_two_bid_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_one_trick_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_two_trick_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/trick" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_three_trick_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/trick"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_3_score_placeholder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_three_bid_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_two_trick_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_three_trick_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/trick" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_four_trick_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/trick"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_4_score_placeholder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_four_bid_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_three_trick_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_four_trick_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/trick" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_five_trick_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/trick"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_5_score_placeholder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_five_bid_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_four_trick_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_five_trick_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/trick" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/player_six_trick_textInput_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:hint="@string/trick"
+        android:selectAllOnFocus="true"
+        app:layout_constraintEnd_toStartOf="@+id/player_6_score_placeholder"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_six_bid_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_five_trick_textInput_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/player_six_trick_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingEnd="20dp"
+            android:paddingStart="16dp"
+            android:text="@string/trick" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_1_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/Player"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player_one_bid_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/player_one_bid_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_2_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/Player_2"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player_two_bid_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/player_two_bid_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_3_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/Player_3"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player_three_bid_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/player_three_bid_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_4_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/Player_4"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player_four_bid_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/player_four_bid_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_5_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/Player_5"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player_five_bid_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/player_five_bid_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_6_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/Player_6"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/player_six_bid_textInput_layout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/player_six_bid_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_1_score_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="@string/game_menu_score_placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_one_trick_textInput_layout"
+        app:layout_constraintTop_toTopOf="@id/player_one_trick_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_2_score_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/game_menu_score_placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_two_trick_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_1_score_placeholder"
+        app:layout_constraintTop_toTopOf="@id/player_two_trick_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_3_score_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/game_menu_score_placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_three_trick_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_2_score_placeholder"
+        app:layout_constraintTop_toTopOf="@id/player_three_trick_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_4_score_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/game_menu_score_placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_four_trick_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_3_score_placeholder"
+        app:layout_constraintTop_toTopOf="@id/player_four_trick_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_5_score_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/game_menu_score_placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_five_trick_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_4_score_placeholder"
+        app:layout_constraintTop_toTopOf="@id/player_five_trick_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/player_6_score_placeholder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/game_menu_score_placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/player_six_trick_textInput_layout"
+        app:layout_constraintTop_toBottomOf="@id/player_5_score_placeholder"
+        app:layout_constraintTop_toTopOf="@id/player_six_trick_textInput_layout" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/Round_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="22dp"
+        android:text="@string/game_menu_round_placeholder"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/calc_btn"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/num_round_txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:text="@string/round_num_placeholder"
+        android:textColor="@color/DarkPurple"
+        app:layout_constraintBottom_toTopOf="@id/calc_btn"
+        app:layout_constraintStart_toEndOf="@id/Round_txt" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/of_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:text="@string/game_menu_of_text"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/calc_btn"
+        app:layout_constraintStart_toEndOf="@id/num_round_txt1" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/num_round_txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="12dp"
+        android:text="@string/round_num_placeholder"
+        android:textColor="@color/DarkPurple"
+        app:layout_constraintBottom_toTopOf="@id/calc_btn"
+        app:layout_constraintStart_toEndOf="@id/of_txt" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
